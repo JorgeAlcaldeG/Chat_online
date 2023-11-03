@@ -11,10 +11,11 @@
 
     mysqli_stmt_execute($stm_consulta);
     $verif = mysqli_stmt_get_result($stm_consulta);
-    $res = mysqli_fetch_assoc($verif);
+    $verif = mysqli_fetch_assoc($verif);
 
+    
 
-    if (password_verify($pwd, $res['user_pwd'])) {
+    if (password_verify($pwd, $verif['user_pwd'])) {
         echo 'Password is valid!';
         echo "<br>";
         echo "acceso al chat";
