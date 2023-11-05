@@ -38,7 +38,6 @@ if (!filter_has_var(INPUT_POST, 'enviar')) {
         header("Location: ./../index.php".$empty."&".$error);
         exit();
     }else{
-        echo "Ningun campo esta vacio";
     }
     echo"<form id='login' action='proc_login.php' method='POST'>";
     echo"<input type='hidden' id='user' name='user' value='".$user."'>";

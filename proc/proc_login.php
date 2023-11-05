@@ -1,8 +1,8 @@
 <?php
     require 'conexion.php';
-    $user = mysqli_real_escape_string($conn,$_POST['user']);
     $pwd = mysqli_real_escape_string($conn,$_POST['pwd']);
-    //Consulta
+    $user = mysqli_real_escape_string($conn,$_POST['user']);
+//Consulta
 
     $sql_login = "SELECT user_username, user_pwd from usuarios where user_username = ?";
     $stm_consulta = mysqli_stmt_init($conn);
@@ -11,21 +11,21 @@
 
     mysqli_stmt_execute($stm_consulta);
     $verif = mysqli_stmt_get_result($stm_consulta);
-    $verif = mysqli_fetch_assoc($verif);
-
     
-
+if (mysqli_num_rows($verif) == 1) {
+    $verif = mysqli_fetch_assoc($verif);
+    echo "existe usuario";
+    echo "<br>";
     if (password_verify($pwd, $verif['user_pwd'])) {
         echo 'Password is valid!';
         echo "<br>";
-        echo "acceso al chat";
+        echo "Acceso al chat";
         session_start();
-
-
+        
     } else {
-        echo $pwd;
-        echo "<br>";
-        echo $userpwd;
-        echo "<br>";
-        echo 'Invalid password.';
+        header('Location: ../index.php?fallo=false');
     }
+} else {
+    echo "no existe";
+    header('Location: ../index.php?fallo=false'); // Usuario no encontrado
+}

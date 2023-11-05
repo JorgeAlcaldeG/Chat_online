@@ -9,18 +9,24 @@
 </head>
 <body>
     <!-- 
-    Variables Forumlario:
+        Variables Forumlario:
         - USER -> user
         - PASSWORD -> pwd
         - ENVIAR -> submit
-     -->
+    -->
     <form action="./proc/proc_val.php" method="post">
+        <?php if (isset($_GET['fallo'])) {echo "<div id='error'></div>";}?>
         <label for="user">Usuario</label>
         <input type="text" name="user" id="user">
         <label for="user">Contraseña</label>
         <input type="password" name="pwd" id="pwd">
         <input type="submit" value="enviar" name="enviar">
     </form>
-    
+    <br>
+    <?php
+    $contra = password_hash('sapo',PASSWORD_BCRYPT);
+    echo $contra;
+    ?>
+    <script src="./js/alerts.js"></script>
 </body>
 </html>
