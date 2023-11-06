@@ -20,7 +20,11 @@ if (mysqli_num_rows($verif) == 1) {
         echo 'Password is valid!';
         echo "<br>";
         echo "Acceso al chat";
+
         session_start();
+        $_SESSION['id'] = $verif['id_user'];
+        header('Location: ../home.php');
+        
         
     } else {
         header('Location: ../index.php?fallo=false');
