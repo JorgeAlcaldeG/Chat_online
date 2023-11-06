@@ -23,8 +23,8 @@ if (mysqli_num_rows($verif) == 1) {
 
         session_start();
         $_SESSION['id'] = $verif['id_user'];
+        $_SESSION['nom'] = $verif['user_username'];
         header('Location: ../home.php');
-        
         
     } else {
         header('Location: ../index.php?fallo=false');
