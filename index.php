@@ -8,7 +8,7 @@
     <title>Giatchat</title>
 </head>
 <body>
-    <h2>Bienvenido to GiatChat!!</h2>
+    <h2>Bienvenido to GyatChat!!</h2>
     <div class="container <?php if (isset($_GET['nombreVacio']) || isset($_GET['nombre'])) {echo" right-panel-active";}else{}?>" id="container">
         <div class="form-container sign-up-container">
             <form action="./proc/proc_val.php" method="post" id="registrarse">
