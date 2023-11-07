@@ -13,5 +13,4 @@ function getUserStatus($userLogin, $UserTarget){
     }else{
         return "Enviado";
     }
-
 }
