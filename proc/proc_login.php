@@ -4,7 +4,7 @@
     $user = mysqli_real_escape_string($conn,$_POST['user']);
 //Consulta
 
-    $sql_login = "SELECT user_username, user_pwd from usuarios where user_username = ?";
+    $sql_login = "SELECT id_user, user_username, user_pwd from usuarios where user_username = ?";
     $stm_consulta = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stm_consulta, $sql_login);
     mysqli_stmt_bind_param($stm_consulta, "s", $user);
@@ -20,11 +20,11 @@ if (mysqli_num_rows($verif) == 1) {
         echo 'Password is valid!';
         echo "<br>";
         echo "Acceso al chat";
-
         session_start();
         $_SESSION['id'] = $verif['id_user'];
         $_SESSION['nom'] = $verif['user_username'];
         header('Location: ../home.php');
+
         
     } else {
         header('Location: ../index.php?fallo=false');

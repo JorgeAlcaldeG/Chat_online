@@ -161,8 +161,8 @@ input {
 
 .overlay {
 	background: #C4A499;
-	background: -webkit-linear-gradient(to right, #67C6D8,#0D414F,#0D414F,#67C6D8);
-	background: linear-gradient(to right, #67C6D8,#0D414F,#0D414F,#67C6D8);
+	background: -webkit-linear-gradient(to right, #220F57,#6B1C9B,#AA4A99);
+	background: linear-gradient(to right, #220F57,#6B1C9B,#AA4A99);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -177,6 +177,9 @@ input {
 
 .container.right-panel-active .overlay {
   	transform: translateX(50%);
+}
+.alert{
+	color: red;
 }
 
 .overlay-panel {
