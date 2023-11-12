@@ -6,8 +6,8 @@
     <!-- Comporbmos variables de sesión -->
     <?php
         session_start();
-        $_SESSION["id"] = "3";
-        $_SESSION["nom"] = "jorgeAG";
+        $_SESSION["id"] = "5";
+        $_SESSION["nom"] = "joalga";
         echo $_SESSION["id"];
         if(!isset($_SESSION["id"])){
             header('Location: '.'../index.php');
@@ -53,11 +53,12 @@
         foreach ($res as $friend) {
             // var_dump($friend);
             if($friend["ID1"] == $_SESSION["id"]){
-                echo $friend["nombre2"];
+                echo'<a href="chat.php?id='.$friend["ID2"].'">'.$friend["nombre2"].'</a>';
             }else{
-                echo $friend["nombre1"];
+                echo'<a href="chat.php?id='.$friend["ID1"].'">'.$friend["nombre1"].'</a>';
             }
         } 
     ?>
+    <a href="./proc/cerrarSesion.php">Volver</a>
 </body>
 </html>

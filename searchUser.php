@@ -32,6 +32,7 @@ if(mysqli_num_rows($res)==0){
 }else{
     include("./func/userPeticionStatus.php");
     include("./func/isFriend.php");
+    $resultados=0;
     echo"<table>
         <tr>
             <th>Usuario</th>
@@ -41,6 +42,7 @@ if(mysqli_num_rows($res)==0){
             if($_SESSION["id"] ==$user["id_user"] || Isfriend($_SESSION["id"],$user["id_user"])){
                 continue;
             }
+            $resultados++;
             echo"<tr>
                 <th>".$user["user"]."</th>
                 <th>";
@@ -50,4 +52,8 @@ if(mysqli_num_rows($res)==0){
             </tr>";
         }
     echo"</table>";
+    if($resultados==0){
+        echo "<p>No se han encontrado usuarios</p>";
+    }
+    echo'<a href="home.php">Volver</a>';
 }

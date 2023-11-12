@@ -49,6 +49,7 @@
         echo "Ha ocurrido un error con el registro: ".$e->getMessage();
         die();
     }
+    echo'<a href="home.php">Volver</a>';
 ?>
 
 </body>
