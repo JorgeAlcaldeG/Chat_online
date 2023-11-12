@@ -20,7 +20,7 @@
         mysqli_stmt_execute($stmt1);
         $res = mysqli_stmt_get_result($stmt1);
         $rows = mysqli_num_rows($res);
-        if($rows = 0){
+        if($rows == 0){
             echo "<p>No hay solicitudes pendientes</p>";
         }else{
             echo"<table>

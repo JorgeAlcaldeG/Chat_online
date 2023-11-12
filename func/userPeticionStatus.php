@@ -8,7 +8,8 @@ function getUserStatus($userLogin, $UserTarget){
     mysqli_stmt_bind_param($stmt1, "ii", $userLogin,$UserTarget);
     mysqli_stmt_execute($stmt1);
     $res = mysqli_stmt_get_result($stmt1);
-    if(mysqli_num_rows($res)!=1){
+    // echo mysqli_num_rows($res);
+    if(mysqli_num_rows($res)==0){
         return '<a href="./proc/addPeticion.php?id='.$UserTarget.'">Enviar solicitud</a>';
     }else{
         return "Enviado";

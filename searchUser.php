@@ -31,13 +31,14 @@ if(mysqli_num_rows($res)==0){
     echo "<p>No se han encontrado usuarios</p>";
 }else{
     include("./func/userPeticionStatus.php");
+    include("./func/isFriend.php");
     echo"<table>
         <tr>
             <th>Usuario</th>
             <th>Agregar</th>
         </tr>";
         foreach ($res as $user) {
-            if($_SESSION["id"] ==$user["id_user"]){
+            if($_SESSION["id"] ==$user["id_user"] || Isfriend($_SESSION["id"],$user["id_user"])){
                 continue;
             }
             echo"<tr>

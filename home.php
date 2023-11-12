@@ -6,8 +6,8 @@
     <!-- Comporbmos variables de sesión -->
     <?php
         session_start();
-        $_SESSION["id"] = "5";
-        $_SESSION["nom"] = "joalga";
+        $_SESSION["id"] = "3";
+        $_SESSION["nom"] = "jorgeAG";
         echo $_SESSION["id"];
         if(!isset($_SESSION["id"])){
             header('Location: '.'../index.php');
@@ -39,5 +39,25 @@
         <input type="text" name="search">
         <button type="submit">Buscar</button>
     </form>
+    <?php
+        $sqlFriends = "SELECT a.id_user AS 'ID1',u.user_username AS 'nombre1',a.id_user_amigo AS 'ID2',u2.user_username AS 'nombre2' FROM `amigos` a INNER JOIN `usuarios` u on a.id_user = u.id_user INNER JOIN `usuarios` u2 ON u2.id_user =a.id_user_amigo WHERE a.id_user = ? OR a.id_user_amigo = ?"; 
+        $stmt1 = mysqli_prepare($conn, $sqlFriends);
+        mysqli_stmt_bind_param($stmt1, "ii", $_SESSION["id"],$_SESSION["id"]);
+        mysqli_stmt_execute($stmt1);
+        $res = mysqli_stmt_get_result($stmt1);
+        $rows = mysqli_num_rows($res);
+        ?>
+    
+    <h1>Amigos</h1>
+    <?php
+        foreach ($res as $friend) {
+            // var_dump($friend);
+            if($friend["ID1"] == $_SESSION["id"]){
+                echo $friend["nombre2"];
+            }else{
+                echo $friend["nombre1"];
+            }
+        } 
+    ?>
 </body>
 </html>
