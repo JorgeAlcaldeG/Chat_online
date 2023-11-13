@@ -17,9 +17,9 @@ if (mysqli_num_rows($verif) == 1) {
     echo "existe usuario";
     echo "<br>";
     if (password_verify($pwd, $verif['user_pwd'])) {
-        echo 'Password is valid!';
-        echo "<br>";
-        echo "Acceso al chat";
+        // echo 'Password is valid!';
+        // echo "<br>";
+        // echo "Acceso al chat";
         session_start();
         $_SESSION['id'] = $verif['id_user'];
         $_SESSION['nom'] = $verif['user_username'];

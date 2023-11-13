@@ -35,11 +35,11 @@ if (filter_has_var(INPUT_POST, 'login')) {
         header("Location: ./../index.php".$empty."&".$error);
         exit();
     }else{
+        echo"<form id='login' action='proc_login.php' method='POST'>";
+        echo"<input type='hidden' id='user' name='user' value='".$user."'>";
+        echo"<input type='hidden' id='pwd' name='pwd' value='".$pwd."'>";
+        echo "<script>document.getElementById('login').submit();</script>";
     }
-    echo"<form id='login' action='proc_login.php' method='POST'>";
-    echo"<input type='hidden' id='user' name='user' value='".$user."'>";
-    echo"<input type='hidden' id='pwd' name='pwd' value='".$pwd."'>";
-    echo "<script>document.getElementById('login').submit();</script>";
 
 }else if (filter_has_var(INPUT_POST, 'registrarse')) {
     include("../func/campoVacio.php");
