@@ -33,7 +33,9 @@ try {
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt1);
         mysqli_stmt_close($stmt2);
-        echo"Usuario creadado correctamente";
+        echo "Usuario creadado correctamente";
+        header('Location: '.'../index.php');
+
     }
 
 } catch (Exception $e) {

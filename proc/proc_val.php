@@ -121,7 +121,7 @@ if (filter_has_var(INPUT_POST, 'login')) {
             'apellido' => $apellido,
         );
         $datosDevueltos=http_build_query($datosRecibidos);
-        header("Location: ../index.php". $errores. "&". $datosDevueltos);
+        header("Location: ../index.php". $errores. "&signup=true&". $datosDevueltos);
         exit();
     }else{
         echo'<form action="./proc_registro.php" method="post" id="RegistroCheck">

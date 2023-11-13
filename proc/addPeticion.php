@@ -20,6 +20,9 @@ try {
     mysqli_stmt_execute($stmt1);
     mysqli_stmt_close($stmt1);
     echo"Petición enviada correctamente";
+    echo "<br>";
+    echo '<a href="../home.php">Volver al Home</a>';
+
 } catch (Exception $e) {
     echo "Ha ocurrido un error con el registro: ".$e->getMessage();
     die();

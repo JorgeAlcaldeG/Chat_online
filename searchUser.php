@@ -7,7 +7,7 @@ if(isset($_SESSION["id"])){
     if(!empty($_POST["search"])){
         include("./proc/conexion.php");
     }else{
-        header('Location: '.'../home.php');
+        header('Location: '.'home.php');
         exit();
     }
 }else{

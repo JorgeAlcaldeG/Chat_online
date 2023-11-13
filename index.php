@@ -13,6 +13,7 @@
         <div class="form-container sign-up-container">
             <form action="./proc/proc_val.php" method="post" id="registrarse">
                 <h1>Crear Cuenta</h1>
+                <?php  if (isset($_GET['signup'])) {echo "<span class='alert'>Porfavor revisa los datos del usuario a crear</span>";}?>
                 <input type="text" name="user" id="user" placeholder="Usuario" value="<?php if(isset($_GET["user"])){echo $_GET["user"];} ?>">
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php if(isset($_GET["nombre"])){echo $_GET["nombre"];} ?>">
                 <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<?php if(isset($_GET["apellido"])){echo $_GET["apellido"];} ?>">

@@ -14,8 +14,8 @@
     
 if (mysqli_num_rows($verif) == 1) {
     $verif = mysqli_fetch_assoc($verif);
-    echo "existe usuario";
-    echo "<br>";
+    // echo "existe usuario";
+    // echo "<br>";
     if (password_verify($pwd, $verif['user_pwd'])) {
         // echo 'Password is valid!';
         // echo "<br>";
@@ -27,9 +27,9 @@ if (mysqli_num_rows($verif) == 1) {
 
         
     } else {
-        header('Location: ../index.php?fallo=false');
+        header('Location: ../index.php?loginerror=true');
     }
 } else {
     echo "no existe";
-    header('Location: ../index.php?fallo=false'); // Usuario no encontrado
+    header('Location: ../index.php?loginerror=true'); // Usuario no encontrado
 }

@@ -23,7 +23,7 @@
         // echo $id;
         // echo "</br>";
         // echo $_SESSION["id"];
-        $sqlChat="SELECT chat_msg AS 'msg', fecha, user_origen,user_destino FROM `chat` WHERE user_origen=? OR user_origen = ? AND user_destino=? or user_destino=? ORDER BY fecha ASC";
+        $sqlChat="SELECT c.chat_msg AS 'msg', c.fecha, u1.user_username AS 'origen',u2.user_username AS 'destino' FROM `chat` c INNER JOIN usuarios u1 ON c.user_origen = u1.id_user INNER JOIN usuarios u2 ON c.user_destino = u2.id_user WHERE c.user_origen=? OR c.user_origen = ? AND c.user_destino=? or c.user_destino=? ORDER BY fecha ASC; ";
         $stmt2 = mysqli_prepare($conn, $sqlChat);
         mysqli_stmt_bind_param($stmt2, "iiii", $id,$_SESSION["id"],$id,$_SESSION["id"]);
         mysqli_stmt_execute($stmt2);
@@ -42,7 +42,7 @@
     <?php
         foreach ($resChat as $msg) {
             // var_dump($msg);
-            echo "Mensaje de ".$msg['user_destino']." => ".$msg['msg']." - ".$msg['fecha']."";
+            echo "Mensaje de ".$msg['origen']." => ".$msg['msg']." - ".$msg['fecha']."";
             echo"</br>";
         }
     ?>
