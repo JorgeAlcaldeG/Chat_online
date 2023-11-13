@@ -10,8 +10,8 @@ function getUserStatus($userLogin, $UserTarget){
     $res = mysqli_stmt_get_result($stmt1);
     // echo mysqli_num_rows($res);
     if(mysqli_num_rows($res)==0){
-        return '<a href="./proc/addPeticion.php?id='.$UserTarget.'">Enviar solicitud</a>';
+        return '<a class="btn btn-primary" href="./proc/addPeticion.php?id='.$UserTarget.'">Enviar solicitud</a>';
     }else{
-        return "Enviado";
+        return '<a class="btn btn-secondary"> Enviado</a>';
     }
 }
